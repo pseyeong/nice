@@ -1,0 +1,26 @@
+//checkbox 전체 선택 및 해제
+
+$('input[name=upjong_check]').click(function(){
+    // 전체 체크박스
+    const checkboxes = document.querySelectorAll('input[name="upjong_check"]');
+    // 선택된 체크박스
+    const checked = document.querySelectorAll('input[name="upjong_check"]:checked');
+    // select all 체크박스
+    const upjongAll = document.querySelector('input[name=upjong_checkAll]');
+
+    if(checkboxes.length === checked.length)  {
+        upjongAll.checked = true;
+    }else {
+        upjongAll.checked = false;
+    }
+});
+
+$('input[name=upjong_checkAll]').click(function(){
+    const checkboxes = document.getElementsByName('upjong_check');
+    const upjongAll = document.querySelector('input[name=upjong_checkAll]');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = upjongAll.checked
+    })
+});
+
